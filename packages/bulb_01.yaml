@@ -1,0 +1,33 @@
+light:
+  platform: mqtt
+  name: bulb_01
+  command_topic: "fstemarie@gmail.com/iot/cmnd/bulb_01/Power"
+  payload_on: "ON"
+  payload_off: "OFF"
+  on_command_type: last
+  availability_topic: "fstemarie@gmail.com/iot/tele/bulb_01/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  brightness_command_topic: "fstemarie@gmail.com/iot/cmnd/bulb_01/Dimmer"
+  brightness_state_topic: "fstemarie@gmail.com/iot/tele/bulb_01/STATE"
+  brightness_value_template: "{{value_json.Dimmer}}"
+  brightness_scale: 100
+  color_temp_command_topic: "fstemarie@gmail.com/iot/cmnd/bulb_01/CT"
+  color_temp_state_topic: "fstemarie@gmail.com/iot/tele/bulb_01/STATE"
+  color_temp_value_template: "{{value_json.CT}}"
+  rgb_command_topic: "fstemarie@gmail.com/iot/cmnd/bulb_01/Color1"
+  rgb_state_topic: "fstemarie@gmail.com/iot/tele/bulb_01/STATE"
+  rgb_value_template: "{{value_json.Color.split(',')[:3] | join(',')}}"
+  white_value_command_topic: "fstemarie@gmail.com/iot/cmnd/bulb_01/White"
+  white_value_state_topic: "fstemarie@gmail.com/iot/tele/bulb_01/STATE"
+  white_value_template: "{{value_json.White}}"
+  white_value_scale: 100
+  effect_command_topic: "fstemarie@gmail.com/iot/cmnd/bulb_01/SCHEME"
+  effect_state_topic: "fstemarie@gmail.com/iot/tele/bulb_01/STATE"
+  effect_value_template: "{{value_json.Scheme}}"
+  effect_list:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
